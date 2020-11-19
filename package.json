@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/bevhatzl/Project02#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "mysql": "^2.18.1",
     "sequelize": "^6.3.5",
     "sql": "^0.78.0"
