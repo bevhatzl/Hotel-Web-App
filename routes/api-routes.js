@@ -14,6 +14,10 @@ module.exports = function (app) {
         res.json({
             email: req.user.email,
             id: req.user.id
+        }).then(() => {
+            //need a function to validate if is_admin is true or false
+        }).catch(err => {
+            res.status(401).json(err);
         });
     });
 
