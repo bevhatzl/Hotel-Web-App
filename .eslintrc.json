@@ -9,9 +9,17 @@
     "node": true,
     "jest": true
   },
-  "plugins": ["prettier"],
-  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "plugins": [
+    "prettier"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended"
+  ],
   "rules": {
-    "indent": ["warn", 4]
+    "indent": [
+      "warn",
+      4
+    ]
   }
 }
