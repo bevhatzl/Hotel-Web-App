@@ -10,7 +10,7 @@
     "jest": true
   },
   "plugins": ["prettier"],
-  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  // "extends": ["eslint:recommended", "plugin:prettier/recommended"],
   "rules": {
     "indent": ["warn", 4]
   }
