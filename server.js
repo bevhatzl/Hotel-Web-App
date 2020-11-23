@@ -16,6 +16,17 @@ app.use(express.static(path.join(__dirname, "public")));
 // Requiring our routes
 require("./routes/html-routes.js")(app);
 
+//Set Handlebars npm
+const exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main"}));
+app.set("view engine", "handlebars");
+
+//Import api-routes to the server
+
+const routes = require("./routes/api-routes");
+
+app.use(routes);
 
 // Starts the server to begin listening
 // =============================================================
