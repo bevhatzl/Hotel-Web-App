@@ -21,6 +21,7 @@ CREATE TABLE room (
     bed_type VARCHAR(25) NOT NULL,
     room_desc VARCHAR(120) NOT NULL,
     room_cost DECIMAL(10,2) NOT NULL,
+    room_photo VARCHAR(200),
     is_booked BOOLEAN DEFAULT false,
     PRIMARY KEY (room_number)
 )
