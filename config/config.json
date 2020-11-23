@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "Getfucked!123",
-    "database": "hotel_db",
+    "database": "passport_demo",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
