@@ -5,7 +5,6 @@ $(document).ready(function () {
     var firstNameInput = $("input#first-name-input");
     var lastNameInput = $("input#last-name-input");
     var passwordInput1 = $("input#password-input1");
-    var passwordInput2 = $("input#password-input2");
     var isAdminInput = $("input#is-admin").is(":checked");
 
     // When the signup button is clicked, we validate the email and password are not blank
@@ -16,15 +15,10 @@ $(document).ready(function () {
             firstName: firstNameInput.val().trim(),
             lastName: lastNameInput.val().trim(),
             password: passwordInput1.val().trim(),
-            passwordCheck: passwordInput2.val().trim(),
             isAdmin: isAdminInput
         };
 
-        if (!userData.email || !userData.password || !userData.firstName || !userData.lastName || !userData.passwordCheck) {
-            return;
-        }
-
-        if (userData.password !== userData.passwordCheck) {
+        if (!userData.email || !userData.password || !userData.firstName || !userData.lastName) {
             return;
         }
 
@@ -32,7 +26,6 @@ $(document).ready(function () {
         signUpUser(userData.email, userData.firstName, userData.lastName, userData.password, userData.isAdmin);
         emailInput.val("");
         passwordInput1.val("");
-        passwordInput2.val("");
         firstNameInput.val("");
         lastNameInput.val("");
         $('input[type="checkbox"]').prop('checked', false);
