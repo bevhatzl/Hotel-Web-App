@@ -60,3 +60,6 @@ $(function () {
 
 });
 
+//Appending bootstrap cards function to index.html dynamically.
+
+
