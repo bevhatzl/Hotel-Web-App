@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, "public")));
 //Code for routing
 // Requiring our routes
 require("./routes/html-routes.js")(app);
-
+require("./routes/api-routes.js")(app);
 
 // Starts the server to begin listening
 // =============================================================
