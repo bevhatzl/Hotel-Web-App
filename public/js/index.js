@@ -55,6 +55,9 @@ $(function () {
         let daysArray = getDatesBetweenDates(date1, date2);
         // Function to convert the dates in the array to strings. 
         console.log(datesArrayToStrings(daysArray));
+
+        //Takes user to booking page
+        window.location.href = "/booking.html"
     });
 
 

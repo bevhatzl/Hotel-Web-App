@@ -1,13 +1,8 @@
+const User = require("./user.js");
+const Room = require("./room.js");
+
 module.exports = function (sequelize, DataTypes) {
     var Reservation = sequelize.define("Booking", {
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-        },
-        room_number: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-        },
         arrival_date: {
             type: DataTypes.DATE,
             allowNull: false,
@@ -23,5 +18,10 @@ module.exports = function (sequelize, DataTypes) {
     }, {
         timestamps: false,
     });
+
+    Reservation.belongsTo(User, { foreignKey: 'user_id', targetKey: 'id' });
+
+    Reservation.belongsTo(Room, { foreignKey: 'room_number', targetKey: 'room_number' });
+
     return Reservation;
 };

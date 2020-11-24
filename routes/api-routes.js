@@ -48,8 +48,15 @@ module.exports = function (app) {
     });
 
     app.post("/api/booking", function (req, res) {
+        db.Reservation.create({
+            user_id: req.user.id,
+            room_number: req.body.room_number,
+            arrival_date: req.body.date1,
+            depart_date: req.body.date2,
+            num_nights: req.body.Difference_In_Days,
+        });
+    });
+};
 
-    })
-}
 
 
