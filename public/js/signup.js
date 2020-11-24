@@ -43,11 +43,10 @@ $(document).ready(function () {
                 window.location.replace("/");
                 // If there's an error, handle it by throwing up a bootstrap alert
             })
-            .catch(handleLoginErr);
-    }
-
-    function handleLoginErr(err) {
-        $("#alert .msg").text(err.responseJSON);
-        $("#alert").fadeIn(500);
+            .catch(err => {
+                console.log(err);
+                $("#alert .msg").text(err.status + " " + "Error!" + " " + err.statusText + " " + '(' + err.responseJSON.original.sqlMessage + ')');
+                $("#alert").fadeIn(500);
+            });
     }
 });
