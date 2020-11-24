@@ -15,7 +15,8 @@ CREATE TABLE users (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE room (
+CREATE TABLE rooms (
+    id INT NOT NULL AUTO_INCREMENT,
     room_number INT NOT NULL,
     room_name VARCHAR(25) NOT NULL,
     bed_type VARCHAR(25) NOT NULL,
@@ -23,7 +24,7 @@ CREATE TABLE room (
     room_cost DECIMAL(10,2) NOT NULL,
     room_photo VARCHAR(200),
     is_booked BOOLEAN DEFAULT false,
-    PRIMARY KEY (room_number)
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE reservation (
