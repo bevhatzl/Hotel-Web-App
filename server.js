@@ -24,9 +24,7 @@ app.set("view engine", "handlebars");
 
 //Import api-routes to the server
 
-const routes = require("./routes/api-routes");
-
-app.use(routes);
+//const routes = require("./config/connection.js");
 
 // Starts the server to begin listening
 // =============================================================
