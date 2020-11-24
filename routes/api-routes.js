@@ -107,6 +107,7 @@
 
 
 // router.get("/api/rooms", function (req, res) {
+  
 var db = require("../models");
 var passport = require("../config/passport");
 
