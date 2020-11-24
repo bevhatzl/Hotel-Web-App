@@ -2,6 +2,8 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const passport = require("passport");
+
 
 var app = express();
 const PORT = process.env.PORT || 8000;
@@ -11,11 +13,13 @@ const PORT = process.env.PORT || 8000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Code for routing
 // Requiring our routes
 require("./routes/html-routes.js")(app);
-
+require("./routes/api-routes.js")(app);
 
 // Starts the server to begin listening
 // =============================================================

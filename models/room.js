@@ -1,7 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
     var Room = sequelize.define("Room", {
         room_number: {
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
         room_name: {
