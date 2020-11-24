@@ -31,5 +31,8 @@ CREATE TABLE reservation (
     reservation_id INT NOT NULL AUTO_INCREMENT,
     id INT NULL,
     room_number INT NULL,
+    arrival_date DATE NOT NULL,
+    depart_date DATE NOT NULL,
+    num_nights INT NOT NULL,
     PRIMARY KEY (reservation_id)
 ) 
