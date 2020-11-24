@@ -9,17 +9,20 @@ module.exports = function (app) {
     });
 
     app.post("/api/signup", function (req, res) {
+        console.log(req.body)
         db.User.create({
             email: req.body.email,
             first_name: req.body.firstName,
             last_name: req.body.lastName,
-            password: req.body.password
+            password: req.body.password,
+            is_admin: req.body.isAdmin
         })
             //upon creating user, redirects to login api so the user is automatically logged in
             .then(function () {
                 res.redirect(307, "/api/login");
             })
             .catch(err => {
+                console.log(err);
                 res.status(401).json(err);
             });
     });

@@ -5,7 +5,6 @@ $(document).ready(function () {
     var firstNameInput = $("input#first-name-input");
     var lastNameInput = $("input#last-name-input");
     var passwordInput1 = $("input#password-input1");
-    var isAdminInput = $("input#is-admin").is(":checked");
 
     // When the signup button is clicked, we validate the email and password are not blank
     signUpForm.on("submit", function (event) {
@@ -15,7 +14,7 @@ $(document).ready(function () {
             firstName: firstNameInput.val().trim(),
             lastName: lastNameInput.val().trim(),
             password: passwordInput1.val().trim(),
-            isAdmin: isAdminInput
+            isAdmin: $("input#is-admin").is(":checked")
         };
 
         if (!userData.email || !userData.password || !userData.firstName || !userData.lastName) {
@@ -28,7 +27,6 @@ $(document).ready(function () {
         passwordInput1.val("");
         firstNameInput.val("");
         lastNameInput.val("");
-        $('input[type="checkbox"]').prop('checked', false);
     });
 
     // Does a post to the signup route. If successful, we are redirected to the members page
@@ -45,7 +43,7 @@ $(document).ready(function () {
                 window.location.replace("/");
                 // If there's an error, handle it by throwing up a bootstrap alert
             })
-            .catch(handleLoginErr(err));
+            .catch(handleLoginErr);
     }
 
     function handleLoginErr(err) {
