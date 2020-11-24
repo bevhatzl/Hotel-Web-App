@@ -34,4 +34,22 @@ module.exports = function (app) {
         });
     });
 
+    app.get("/api/user_data", function (req, res) {
+        if (!req.user) {
+            // The user is not logged in, send back an empty object
+            res.json({});
+        } else {
+            // Otherwise send back the user's name 
+            res.json({
+                first_name: req.user.first_name,
+                last_name: req.user.last_name
+            });
+        }
+    });
+
+    app.post("/api/booking", function (req, res) {
+
+    })
 }
+
+
