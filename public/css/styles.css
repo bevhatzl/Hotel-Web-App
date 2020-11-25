@@ -18,6 +18,11 @@ body {
     color: #5f59f7
 }
 
+#facilities {
+    padding-left: 10px;
+    list-style: square;
+}
+
 .date-entry {
     padding-right: 20px;
 }
