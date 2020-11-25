@@ -29,10 +29,24 @@ module.exports = function (app) {
 
     app.get("/api/rooms", function (req, res) {
         db.Room.findAll({}).then(function (dbRoom) {
-            res.json(dbRoom);
-            console.log(dbRoom)
+          let roomCards = {
+            cards: dbRoom
+          };
+            console.log(roomCards)
+            res.render("index", roomCards); 
         });
     });
+
+  };
+
+
+  //POST for user data
+  // 1. arrival date 
+  // 2. edit the reservations table
+  // 3. Need room ID
+  // 4. User ID need
+
+  // When hit book now POST DATA to table, then GET DATA to booking.hmtl
 
     app.get("/api/user_data", function (req, res) {
         if (!req.user) {
