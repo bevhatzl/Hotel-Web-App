@@ -3,6 +3,7 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const passport = require("passport");
+const db = require("./models");
 
 
 var app = express();
@@ -23,7 +24,7 @@ app.use(passport.session());
 //Set Handlebars npm
 const exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main"}));
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 //Import api-routes to the server
@@ -34,6 +35,8 @@ require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 // Starts the server to begin listening
 // =============================================================
-app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
+db.sequelize.sync({ force: true }).then(function () {
+    app.listen(PORT, function () {
+        console.log("App listening on PORT " + PORT);
+    });
 });
