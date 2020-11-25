@@ -1,9 +1,6 @@
 DROP DATABASE IF EXISTS hotel_db;
-
 CREATE database hotel_db;
-
 USE hotel_db;
-
 CREATE TABLE users (
     id INT NOT NULL AUTO_INCREMENT,
     email VARCHAR(25) NOT NULL,
@@ -26,13 +23,13 @@ CREATE TABLE rooms (
     is_booked BOOLEAN DEFAULT false,
     PRIMARY KEY (id)
 );
-
 CREATE TABLE reservation (
-    reservation_id INT NOT NULL AUTO_INCREMENT,
-    id INT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NULL,
     room_number INT NULL,
     arrival_date DATE NOT NULL,
     depart_date DATE NOT NULL,
     num_nights INT NOT NULL,
-    PRIMARY KEY (reservation_id)
-) 
+    PRIMARY KEY (id)
+)
+
