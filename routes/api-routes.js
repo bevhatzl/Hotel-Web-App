@@ -9,17 +9,20 @@ module.exports = function (app) {
     });
 
     app.post("/api/signup", function (req, res) {
+        console.log(req.body)
         db.User.create({
             email: req.body.email,
             first_name: req.body.firstName,
             last_name: req.body.lastName,
-            password: req.body.password
+            password: req.body.password,
+            is_admin: req.body.isAdmin
         })
             //upon creating user, redirects to login api so the user is automatically logged in
             .then(function () {
                 res.redirect(307, "/api/login");
             })
             .catch(err => {
+                console.log(err);
                 res.status(401).json(err);
             });
     });
@@ -31,4 +34,29 @@ module.exports = function (app) {
         });
     });
 
-}
+    app.get("/api/user_data", function (req, res) {
+        if (!req.user) {
+            // The user is not logged in, send back an empty object
+            res.json({});
+        } else {
+            // Otherwise send back the user's name 
+            res.json({
+                first_name: req.user.first_name,
+                last_name: req.user.last_name
+            });
+        }
+    });
+
+    app.post("/api/booking", function (req, res) {
+        db.Reservation.create({
+            user_id: req.user.id,
+            room_number: req.body.room_number,
+            arrival_date: req.body.date1,
+            depart_date: req.body.date2,
+            num_nights: req.body.Difference_In_Days,
+        });
+    });
+};
+
+
+

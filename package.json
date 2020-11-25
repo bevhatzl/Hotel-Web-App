@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test:unit": "echo \"Error: no test specified\" && exit 1",
-    "test:acceptance": "echo \"Error: no test specified\" && exit 1",
+    "test:acceptance": "jest",
     "fix:lint": "eslint --fix \"**/*.js\"",
     "fix:prettier": "yarn prettier --write .",
     "start": "node server.js"
@@ -26,6 +26,7 @@
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "passport": "^0.4.1",
