@@ -1,4 +1,45 @@
+body {
+    background-color: #44C2FD;
+    color: #343090;
+    font-family: 'Roboto', sans-serif;
+}
+
+#main-nav {
+    background-color: #343090;
+}
+
+#signup-nav {
+    margin-bottom: 15px;
+    background-color: #343090;
+}
+
+#main-heading {
+    text-align: center;
+    color: #5f59f7
+}
+
+.date-entry {
+    padding-right: 20px;
+}
+
+#dates-container {
+    margin: auto;
+}
+
+#title-card {
+    color: #5f59f7;
+    font-weight: bold;
+    font-size: 38px;
+}
+
 #sticky-footer {
     flex-shrink: none;
+}
+
+@media (max-width: 400px) {
+	#dates-container {
+        flex-direction: column;
+        text-align: right;
+	}
 }
 

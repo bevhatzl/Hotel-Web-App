@@ -5,24 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pacific Point Resort</title>
+    <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-lights bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark container-fluid" id="main-nav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+            aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/signup">Sign-Up</a>
-                </li>
-            </ul>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <form class="form-inline ml-auto">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/signup" class="nav-link">Sign-Up</a>
+                    </li>
+                </ul>
+            </form>
         </div>
     </nav>
 
@@ -30,7 +36,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="jumbotron">
-                    <h1 class="display-4">Welcome to Pacific Point Hotel</h1>
+                    <h1 class="display-4">Welcome to Pacific Point Resort</h1>
                     <p class="lead">It's easy to book and stay at our luxurious resort which has all the facilities you
                         need to help you unwind. View our popular rooms below.</p>
                     <p>Our facilities include:</p>
@@ -49,11 +55,15 @@
 
         <!-- Date picker for check-in and check-out dates -->
         <div class="container">
-            <div>
-                <label for="arrival">Arrival Date:</label>
-                <input type="text" id="arrival">
-                <label for="leaving">Leaving Date:</label>
-                <input type="text" id="leaving">
+            <div class="d-flex justify-content-center" id="dates-container">
+                <div class="date-entry">
+                    <label for="arrival">Arrival Date:</label>
+                    <input type="text" id="arrival">
+                </div>
+                <div class="date-entry">
+                    <label for="leaving">Leaving Date:</label>
+                    <input type="text" id="leaving">
+                </div>
             </div>
 
             <ul class="room-list" style="list-style-type: none">
@@ -62,8 +72,8 @@
                     <div class="col-md-10">
                         <div class="card mt-2">
                             <div class="card-body">
-                                <h5 class="card-title">Beach View Room - Queen</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">$350.00 per night</h6>
+                                <h5 class="card-title" id="title-card">Beach View Room - Queen</h5>
+                                <h6 class="card-subtitle mb-2">$350.00 per night</h6>
                                 <p class="card-text">Description goes here</p>
                                 <div class="col-md-04 book-btn">
                                     <button class="btn btn-primary btn-lg book-btn">Book Now</button>
@@ -76,8 +86,8 @@
                     <div class="col-md-10">
                         <div class="card mt-2">
                             <div class="card-body">
-                                <h5 class="card-title">Garden View Room - Double</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">$250.00 per night</h6>
+                                <h5 class="card-title" id="title-card">Garden View Room - Double</h5>
+                                <h6 class="card-subtitle mb-2">$250.00 per night</h6>
                                 <p class="card-text">Description goes here</p>
                                 <div class="col-md-04 book-btn">
                                     <button class="btn btn-primary btn-lg book-btn">Book Now</button>
@@ -90,8 +100,8 @@
                     <div class="col-md-10">
                         <div class="card mt-2">
                             <div class="card-body">
-                                <h5 class="card-title">Pool View Room - Twin Bed</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">$200.00</h6>
+                                <h5 class="card-title" id="title-card">Pool View Room - Twin Bed</h5>
+                                <h6 class="card-subtitle mb-2">$200.00</h6>
                                 <p class="card-text">Description goes here</p>
                                 <div class="col-md-04 book-btn">
                                     <button class="btn btn-primary btn-lg book-btn">Book Now</button>
