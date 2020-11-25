@@ -11,6 +11,7 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
+
 CREATE TABLE rooms (
     id INT NOT NULL AUTO_INCREMENT,
     room_number INT NOT NULL,
@@ -31,3 +32,4 @@ CREATE TABLE reservation (
     num_nights INT NOT NULL,
     PRIMARY KEY (id)
 )
+

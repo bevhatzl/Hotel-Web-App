@@ -21,8 +21,9 @@ $(function () {
             const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(dates[i])
             const mo = new Intl.DateTimeFormat('en', { month: 'numeric' }).format(dates[i])
             const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(dates[i])
-            const stringFromDate = mo + "/" + da + "/" + ye;
+            const stringFromDate = ye + "-" + mo + "-" + da;
             stringedDatesArray.push(stringFromDate);
+            console.log(stringFromDate);
         }
         return stringedDatesArray;
     }
