@@ -1,27 +1,15 @@
-// const Sequelize = require("sequelize");
-// // sequelize (lowercase) references my connection to the DB.
-// // const sequelize = require("../config/connection.js");
+'use strict';
 
-// // Creates a "Book" model that matches up with DB
-// let Hotel = sequelize.define("room", {
-//   room_number: Sequelize.INTEGER,
-//   room_name: Sequelize.STRING,
-//   bed_type: Sequelize.STRING,
-//   room_desc: Sequelize.STRING,
-//   room_cost: Sequelize.DECIMAL,
-//   room_photo: Sequelize.STRING,
-//   is_booked: Sequelize.BOOLEAN
-// });
-
-// // Syncs with DB
-// Hotel.sync();
-
-// // Makes the Book Model available for other files (will also create a table)
-// module.exports = Hotel;
-
+const { Model } = require("sequelize");
 
 module.exports = function (sequelize, DataTypes) {
-    var Room = sequelize.define("Room", {
+    class Room extends Model {
+
+        static associate(models) {
+            Room.hasOne(models.Reservation)
+        }
+    }
+    Room.init({
         room_number: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -60,7 +48,9 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         }
     }, {
-        timestamps: false
+        timestamps: false,
+        sequelize,
+        modelName: 'Reservation',
     });
     return Room;
 };
