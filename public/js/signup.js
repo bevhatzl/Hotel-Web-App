@@ -40,7 +40,7 @@ $(document).ready(function () {
             isAdmin: isAdmin
         })
             .then(data => {
-                window.location.replace("/success");
+                window.location.replace("/");
                 // If there's an error, handle it by throwing up a bootstrap alert
             })
             .catch(err => {

@@ -1,42 +1,40 @@
 // Requiring necessary npm packages
-const express = require("express");
-const fs = require("fs");
-const path = require("path");
-const passport = require("passport");
-const db = require("./models");
+require('dotenv').config();
+const express = require('express');
+const session = require('express-session');
+const exphbs = require('express-handlebars');
 
+// Requiring passport as we've configured it
+const passport = require('./config/passport');
 
-var app = express();
+// Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8000;
+const db = require('./models');
 
-
-// Set up body parsing, static, and route middleware
-app.use(express.json());
+// Creating express app and configuring middleware needed for authentication
+const app = express();
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.json());
+app.use(express.static('public'));
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: process.env.SECRET, resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-//Code for routing
+// handlebars
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
+
 // Requiring our routes
+const htmlRoutes = require('./routes/html-routes.js');
+const apiRoutes = require('./routes/api-routes.js');
 
+app.use(htmlRoutes);
+app.use(apiRoutes);
 
-//Set Handlebars npm
-const exphbs = require("express-handlebars");
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
-//Import api-routes to the server
-
-//const routes = require("./config/connection.js");
-
-require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
-// Starts the server to begin listening
-// =============================================================
-db.sequelize.sync({ force: true }).then(function () {
-    app.listen(PORT, function () {
-        console.log("App listening on PORT " + PORT);
+// Syncing our database and logging a message to the user upon success
+db.sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => {
+        console.log('==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.', PORT, PORT);
     });
 });
