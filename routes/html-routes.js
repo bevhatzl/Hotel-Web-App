@@ -1,6 +1,8 @@
 // Requiring path to so we can use relative routes to our HTML files
-const path = require("path");
-
+const express = require('express');
+const db = require('../models');
+var path = require('path');
+const router = express.Router();
 //use isLoggedin in the route for the booking confirmation screen
 //e.g:
 // app.get("/members", isAuthenticated, function(req, res) {
@@ -8,19 +10,36 @@ const path = require("path");
 //   });
 var isLoggedin = require("../config/middleware/isLoggedin.js");
 
+router.get("/", (req, res) => {
+    db.Room.findAll({}).then(function (dbRoom) {
+        let roomCards = {
+            cards: dbRoom
+        };
+        console.log(roomCards)
+        res.render("index", roomCards);
+    });
+});
 
-module.exports = function (app) {
-    app.get("/", (req, res) => {
-        res.render("index");
-    });
-    app.get("/signup", (req, res) => {
-        res.sendFile(path.join(__dirname, "../public/signup.html"));
-    });
-    app.get("/login", (req, res) => {
-        res.sendFile(path.join(__dirname, "../public/login.html"));
-    });
-    app.get("/booking", (req, res) => {
-        res.sendFile(path.join(__dirname, "../public/booking.html"));
-    });
+router.get("/signup", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/signup.html"));
+});
 
-};
+router.get("/login", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/login.html"));
+});
+
+router.get("/booking", isLoggedin, (req, res) => {
+    db.Reservation.findOne({ where: { user_id: req.user_id } }).then(function (dbReservation) {
+        let namePlates = {
+            namePlates: dbReservation
+        };
+        console.log(namePlates)
+        res.render("booking", namePlates);
+    });
+});
+
+router.get("/success", isLoggedin, (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/success.html"))
+})
+
+module.exports = router;

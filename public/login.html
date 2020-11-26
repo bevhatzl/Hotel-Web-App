@@ -6,14 +6,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-    <link href="stylesheets/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-            </div>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark container-fluid" id="signup-nav">
+        <a class="navbar-brand" href="/">Back to Main</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+            aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <form class="form-inline ml-auto">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/signup" class="nav-link">Sign-Up</a>
+                    </li>
+                </ul>
+            </form>
         </div>
     </nav>
     <div class="container">

@@ -58,7 +58,7 @@ $(function () {
         console.log(datesArrayToStrings(daysArray));
 
         //Takes user to booking page
-        window.location.href = "/booking.html"
+        window.location.href = "/booking"
     });
 
 

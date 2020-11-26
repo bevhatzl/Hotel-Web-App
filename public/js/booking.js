@@ -1,3 +1,4 @@
+const { initialize } = require("passport");
 
 $(document).ready(function () {
     const $cancelButton = $(".cancel-btn");
@@ -37,10 +38,18 @@ $(document).ready(function () {
 
 
     function getbooking(booking) {
-        $.get("/api/rooms" + room_number, function (data) {
+        let room_number = '/?room_number=' + req.room_number
+        $.get("/api/rooms/" + room_number, function (data) {
+            console.log(data);
+
+            displayData();
 
         });
     };
+
+    function displayData() {
+
+    }
 
 
     const handleCancelRoom = function () {
