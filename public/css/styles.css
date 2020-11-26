@@ -13,6 +13,11 @@ body {
     background-color: #343090;
 }
 
+#login-nav {
+    margin-bottom: 15px;
+    background-color: #343090;
+}
+
 #main-heading {
     text-align: center;
     color: #5f59f7

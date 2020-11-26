@@ -28,16 +28,31 @@ MIT License
 
 ## Deployed Application
 
-[Click here]() to visit the deployed application.
+[Click here](https://guarded-river-60808.herokuapp.com/) to visit the deployed application.
 
 *Images of the deployed application on Heroku:*
 
-![image](https://user-images.githubusercontent.com/68998298/99936390-22bcdd80-2db7-11eb-9bea-acc9eba685b8.png)
+#### Main Page:
+
+![image](https://user-images.githubusercontent.com/68998298/100318009-70cd1d80-3011-11eb-8a24-8027a113a69f.png)
 
 ---
+#### Sign Up Page:
+![image](https://user-images.githubusercontent.com/68998298/100318061-86dade00-3011-11eb-97cd-41d2477d5b41.png)
 
+---
+#### Login Page:
+![image](https://user-images.githubusercontent.com/68998298/100318689-8ee74d80-3012-11eb-8a84-ad60deba9191.png)
+
+---
+#### Booking Page:
 ![image]()
 
+---
+#### Success Page:
+![image]()
+
+---
 
 ## Contact us
 
