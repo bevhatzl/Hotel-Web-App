@@ -1,55 +1,53 @@
 body {
-    background-color: #44C2FD;
-    color: #343090;
-    font-family: 'Roboto', sans-serif;
+  background-color: #087ca7;
+  font-family: "Roboto", sans-serif;
 }
 
 #main-nav {
-    background-color: #343090;
+  background-color: #582c4d;
 }
 
 #signup-nav {
-    margin-bottom: 15px;
-    background-color: #343090;
+  margin-bottom: 15px;
+  background-color: #582c4d;
 }
 
 #login-nav {
-    margin-bottom: 15px;
-    background-color: #343090;
+  margin-bottom: 15px;
+  background-color: #582c4d;
 }
 
 #main-heading {
-    text-align: center;
-    color: #5f59f7
+  text-align: center;
+  color: #582c4d;
 }
 
 #facilities {
-    padding-left: 10px;
-    list-style: square;
+  padding-left: 10px;
+  list-style: square;
 }
 
 .date-entry {
-    padding-right: 20px;
+  padding-right: 20px;
 }
 
 #dates-container {
-    margin: auto;
+  margin: auto;
 }
 
 #title-card {
-    color: #5f59f7;
-    font-weight: bold;
-    font-size: 38px;
+  color: #582c4d;
+  font-weight: bold;
+  font-size: 38px;
 }
 
 #sticky-footer {
-    flex-shrink: none;
+  flex-shrink: none;
 }
 
 @media (max-width: 400px) {
-	#dates-container {
-        flex-direction: column;
-        text-align: right;
-	}
+  #dates-container {
+    flex-direction: column;
+    text-align: right;
+  }
 }
-
