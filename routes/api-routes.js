@@ -68,5 +68,16 @@ router.post("/api/booking", function (req, res) {
     });
 });
 
+router.get("/api/booking/:room_number", function (req, res) {
+    var room_number = req.params.room_number;
+
+    for (var i = 0; i < db.Reservations.length; i++) {
+        if (room_number === db.Reservations[i].room_number) {
+            console.log(db.Reservations[i])
+            return res.json(db.Reservations[i]);
+        }
+    }
+})
+
 module.exports = router;
 

@@ -40,7 +40,7 @@ $(function () {
         return dates;
     }
 
-    $('.book-btn').on('click', function () {
+    $('.bookNow').on('click', function () {
         // To set two dates to two variables 
         let date1 = new Date(arrivalDate);
         let date2 = new Date(leaveDate);
@@ -57,8 +57,16 @@ $(function () {
         // Function to convert the dates in the array to strings. 
         console.log(datesArrayToStrings(daysArray));
 
-        //Takes user to booking page
-        window.location.href = "/booking"
+        var allDates = {
+            arrival: date1,
+            depart: date2,
+            totalNights: Difference_In_Days
+        };
+
+        localStorage.setItem("allDates", JSON.stringify(allDates));
+
+        console.log(JSON.parse(localStorage.getItem("allDates")));
+
     });
 
 
