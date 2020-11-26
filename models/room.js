@@ -9,48 +9,49 @@ module.exports = function (sequelize, DataTypes) {
             Room.hasOne(models.Reservation)
         }
     }
-    Room.init({
-        room_number: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        room_name: {
-            type: DataTypes.STRING,
-            validate: {
-                len: [1, 25]
+    Room.init(
+        {
+            room_number: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
             },
-            allowNull: false
-        },
-        bed_type: {
-            type: DataTypes.STRING,
-            validate: {
-                len: [1, 25]
+            room_name: {
+                type: DataTypes.STRING,
+                validate: {
+                    len: [1, 25]
+                },
+                allowNull: false
             },
-            allowNull: false
-        },
-        room_desc: {
-            type: DataTypes.STRING,
-            validate: {
-                len: [1, 120]
+            bed_type: {
+                type: DataTypes.STRING,
+                validate: {
+                    len: [1, 25]
+                },
+                allowNull: false
             },
-            allowNull: false
-        },
-        room_cost: {
-            type: DataTypes.DECIMAL(10, 2),
-            allowNull: false
-        },
-        room_photo: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
-        is_booked: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
-        }
-    }, {
+            room_desc: {
+                type: DataTypes.STRING,
+                validate: {
+                    len: [1, 120]
+                },
+                allowNull: false
+            },
+            room_cost: {
+                type: DataTypes.DECIMAL(10, 2),
+                allowNull: false
+            },
+            room_photo: {
+                type: DataTypes.STRING,
+                allowNull: true
+            },
+            is_booked: {
+                type: DataTypes.BOOLEAN,
+                allowNull: false
+            }
+        }, {
         timestamps: false,
         sequelize,
-        modelName: 'Reservation',
+        modelName: 'Room',
     });
     return Room;
 };

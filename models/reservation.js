@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
 
         static associate(models) {
             Reservation.belongsTo(models.User);
-            Reservation.belongsTo(model.Room)
+            Reservation.belongsTo(models.Room)
         }
     }
     Reservation.init(

@@ -28,8 +28,6 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 //Import api-routes to the server
-app.use(require('./routes/html-routes.js'));
-app.use(require('./routes/api-routes.js'));
 
 //const routes = require("./config/connection.js");
 
