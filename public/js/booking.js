@@ -1,56 +1,19 @@
-const { initialize } = require("passport");
 
 $(document).ready(function () {
+
+    console.log('running');
+
+    const localDateStorage = JSON.parse(localStorage.getItem("allDates"));
+    console.log(localDateStorage.arrival);
+
     const $cancelButton = $(".cancel-btn");
     const $successButton = $(".success-btn");
+
     // Route to home page on cancel
 
-    // //Booking Now has been clicked - 
-
-    // // output database infromation to the classnames
-    // <ul class="list-group">
-    //     <li class="list-group-item guestName">Guest Name </li>
-    //     <li class="list-group-item reservationNumber">Reservation Number: </li>
-    //     <li class="list-group-item arrivalDate">Arrival Date</li>
-    //     <li class="list-group-item departureDate">Departure Date</li>
-    //     <li class="list-group-item NumberOfDays">Number of Days</li>
-    // </ul>
-
-    //Example code
-
-    // // This function grabs posts from the database and updates the view
-    // function getPosts(author) {
-    //     authorId = author || "";
-    //     if (authorId) {
-    //         authorId = "/?author_id=" + authorId;
-    //     }
-    //     $.get("/api/posts" + authorId, function (data) {
-    //         console.log("Posts", data);
-    //         posts = data;
-    //         if (!posts || !posts.length) {
-    //             displayEmpty(author);
-    //         }
-    //         else {
-    //             initializeRows();
-    //         }
-    //     });
-    // }
-
-
-    function getbooking(booking) {
-        let room_number = '/?room_number=' + req.room_number
-        $.get("/api/rooms/" + room_number, function (data) {
-            console.log(data);
-
-            displayData();
-
-        });
-    };
-
-    function displayData() {
-
-    }
-
+    $("#arrive").val(localDateStorage.arrival);
+    $("#depart").val(localDateStorage.depart);
+    $("#totalNights").val(localDateStorage.totalNights);
 
     const handleCancelRoom = function () {
         // Route to Home page
@@ -68,6 +31,5 @@ $(document).ready(function () {
     //On click for cancel Button 
     $cancelButton.on("click", handleCancelRoom);
     $successButton.on("click", handleCompleteRoom);
-
 
 });

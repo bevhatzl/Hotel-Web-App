@@ -55,17 +55,19 @@ $(function () {
         // displays the dates seperately
         let daysArray = getDatesBetweenDates(date1, date2);
         // Function to convert the dates in the array to strings. 
-        console.log(datesArrayToStrings(daysArray));
+        let datesFinal = datesArrayToStrings(daysArray);
 
         var allDates = {
-            arrival: date1,
-            depart: date2,
+            arrival: datesFinal[0],
+            depart: datesFinal[1],
             totalNights: Difference_In_Days
         };
 
+        console.log("all dates: " + allDates);
+
         localStorage.setItem("allDates", JSON.stringify(allDates));
 
-        console.log(JSON.parse(localStorage.getItem("allDates")));
+        console.log("localstorage: ", JSON.parse(localStorage.getItem("allDates")));
 
     });
 
