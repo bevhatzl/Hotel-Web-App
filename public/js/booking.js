@@ -1,26 +1,19 @@
-const { initialize } = require("passport");
-const { format } = require("sequelize/types/lib/utils");
 
 $(document).ready(function () {
 
+    console.log('running');
+
     const localDateStorage = JSON.parse(localStorage.getItem("allDates"));
+    console.log(localDateStorage.arrival);
 
     const $cancelButton = $(".cancel-btn");
     const $successButton = $(".success-btn");
-    const arrive = $(".arrive");
-    const depart = $(".depart");
-    const totalNights = $(".totalNights");
 
     // Route to home page on cancel
-    $(".form").append()
 
-
-
-
-    arrive.value(localDateStorage.arrival);
-    depart.value(localDateStorage.depart);
-    totalNights.value(localDateStorage.totalNights);
-
+    $("#arrive").val(localDateStorage.arrival);
+    $("#depart").val(localDateStorage.depart);
+    $("#totalNights").val(localDateStorage.totalNights);
 
     const handleCancelRoom = function () {
         // Route to Home page
@@ -38,6 +31,5 @@ $(document).ready(function () {
     //On click for cancel Button 
     $cancelButton.on("click", handleCancelRoom);
     $successButton.on("click", handleCompleteRoom);
-
 
 });
