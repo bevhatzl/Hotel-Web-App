@@ -1,55 +1,25 @@
 const { initialize } = require("passport");
+const { format } = require("sequelize/types/lib/utils");
 
 $(document).ready(function () {
+
+    const localDateStorage = JSON.parse(localStorage.getItem("allDates"));
+
     const $cancelButton = $(".cancel-btn");
     const $successButton = $(".success-btn");
+    const arrive = $(".arrive");
+    const depart = $(".depart");
+    const totalNights = $(".totalNights");
+
     // Route to home page on cancel
-
-    // //Booking Now has been clicked - 
-
-    // // output database infromation to the classnames
-    // <ul class="list-group">
-    //     <li class="list-group-item guestName">Guest Name </li>
-    //     <li class="list-group-item reservationNumber">Reservation Number: </li>
-    //     <li class="list-group-item arrivalDate">Arrival Date</li>
-    //     <li class="list-group-item departureDate">Departure Date</li>
-    //     <li class="list-group-item NumberOfDays">Number of Days</li>
-    // </ul>
-
-    //Example code
-
-    // // This function grabs posts from the database and updates the view
-    // function getPosts(author) {
-    //     authorId = author || "";
-    //     if (authorId) {
-    //         authorId = "/?author_id=" + authorId;
-    //     }
-    //     $.get("/api/posts" + authorId, function (data) {
-    //         console.log("Posts", data);
-    //         posts = data;
-    //         if (!posts || !posts.length) {
-    //             displayEmpty(author);
-    //         }
-    //         else {
-    //             initializeRows();
-    //         }
-    //     });
-    // }
+    $(".form").append()
 
 
-    function getbooking(booking) {
-        let room_number = '/?room_number=' + req.room_number
-        $.get("/api/rooms/" + room_number, function (data) {
-            console.log(data);
 
-            displayData();
 
-        });
-    };
-
-    function displayData() {
-
-    }
+    arrive.value(localDateStorage.arrival);
+    depart.value(localDateStorage.depart);
+    totalNights.value(localDateStorage.totalNights);
 
 
     const handleCancelRoom = function () {
