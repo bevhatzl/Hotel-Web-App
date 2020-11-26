@@ -28,10 +28,20 @@ router.get("/login", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/login.html"));
 });
 
-router.get("/booking", isLoggedin, (req, res) => {
-    db.Reservation.findOne({ where: { user_id: req.user_id } }).then(function (dbReservation) {
+router.get("/booking/:room_number", isLoggedin, (req, res) => {
+
+    var room_number = req.params.room_number;
+
+    db.Room.findOne({
+        where: {
+            room_number: room_number
+        }
+    }).then(function (dbRoom) {
+
+        console.log(dbRoom);
+
         let namePlates = {
-            namePlates: dbReservation
+            namePlates: dbRoom
         };
         console.log(namePlates)
         res.render("booking", namePlates);

@@ -40,26 +40,26 @@ $(function () {
         return dates;
     }
 
-    $('.book-btn').on('click', function () {
-        // To set two dates to two variables 
-        let date1 = new Date(arrivalDate);
-        let date2 = new Date(leaveDate);
-        // To calculate the time difference of two dates 
-        let Difference_In_Time = date2.getTime() - date1.getTime();
-        // To calculate the no. of days between two dates 
-        let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
-        //To display the final no. of days (result) to let us calculate the total price based on cost per night for the room.
-        console.log("Number of nights is: " + Difference_In_Days);
-        //displays start date and all dates in betweeen but not the end date.
-        console.log(getDatesBetweenDates(date1, date2));
-        // displays the dates seperately
-        let daysArray = getDatesBetweenDates(date1, date2);
-        // Function to convert the dates in the array to strings. 
-        console.log(datesArrayToStrings(daysArray));
+    // $('.book-btn').on('click', function () {
+    //     // To set two dates to two variables 
+    //     let date1 = new Date(arrivalDate);
+    //     let date2 = new Date(leaveDate);
+    //     // To calculate the time difference of two dates 
+    //     let Difference_In_Time = date2.getTime() - date1.getTime();
+    //     // To calculate the no. of days between two dates 
+    //     let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+    //     //To display the final no. of days (result) to let us calculate the total price based on cost per night for the room.
+    //     console.log("Number of nights is: " + Difference_In_Days);
+    //     //displays start date and all dates in betweeen but not the end date.
+    //     console.log(getDatesBetweenDates(date1, date2));
+    //     // displays the dates seperately
+    //     let daysArray = getDatesBetweenDates(date1, date2);
+    //     // Function to convert the dates in the array to strings. 
+    //     console.log(datesArrayToStrings(daysArray));
 
-        //Takes user to booking page
-        window.location.href = "/booking"
-    });
+    //     //Takes user to booking page
+    //     window.location.href = "/booking/" + this.parent().room_number;
+    // });
 
 
 });
