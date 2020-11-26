@@ -57,16 +57,6 @@ router.get("/booking/:room_number", isLoggedin, (req, res) => {
     });
 });
 
-// router.get("/booking", isLoggedin, (req, res) => {
-//     db.Reservation.findOne({ where: { user_id: req.user_id } }).then(function (dbReservation) {
-//         let namePlates = {
-//             namePlates: dbReservation
-//         };
-//         console.log(namePlates)
-//         res.render("booking", namePlates);
-//     });
-// });
-
 router.get("/success", isLoggedin, (req, res) => {
     res.sendFile(path.join(__dirname, "../public/success.html"))
 })
