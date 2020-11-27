@@ -36,7 +36,7 @@ router.get("/booking/:room_number", isLoggedin, (req, res) => {
         where: {
             room_number: room_number
         }
-    }).then(function (dbRoom) {
+    }).then(dbRoom => {
 
         const userData = {
             name: req.user.first_name + " " + req.user.last_name,
@@ -58,7 +58,38 @@ router.get("/booking/:room_number", isLoggedin, (req, res) => {
 });
 
 router.get("/success", isLoggedin, (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/success.html"))
-})
+
+    db.Reservation.findOne({
+        where: {
+            UserId: req.user.id
+        }
+    }).then(dbReservation => {
+
+        console.log(dbReservation);
+
+        const user = db.User.findOne({
+            where: {
+                id: dbReservation.UserId
+            }
+        });
+
+        const room = db.Room.findOne({
+            where: {
+                id: dbReservation.RoomId
+            }
+        });
+
+        const reservation = {
+            name: user.first_name + ' ' + user.last_name,
+            room: 'Room Number: ' + room.room_number + ', ' + room.room_name,
+            arrive: dbReservation.arrival_date,
+            depart: dbReservation.depart_date,
+            num_night: dbReservation.num_night
+        }
+
+        res.render("success", reservation)
+    });
+
+});
 
 module.exports = router;
