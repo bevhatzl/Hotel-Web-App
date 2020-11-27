@@ -1,6 +1,7 @@
 $(function () {
     let arrivalDate;
     let leaveDate;
+    let today = new Date();
     // initialise the datepickers
     $('#arrival').datepicker();
     $('#leaving').datepicker();
@@ -48,29 +49,34 @@ $(function () {
         let Difference_In_Time = date2.getTime() - date1.getTime();
         // To calculate the no. of days between two dates 
         let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
-        //To display the final no. of days (result) to let us calculate the total price based on cost per night for the room.
-        console.log("Number of nights is: " + Difference_In_Days);
-        //displays start date and all dates in betweeen but not the end date.
-        console.log(getDatesBetweenDates(date1, date2));
-        // displays the dates seperately
-        let daysArray = getDatesBetweenDates(date1, date2);
-        // Function to convert the dates in the array to strings. 
-        let datesFinal = datesArrayToStrings(daysArray);
+        // Check if a valid date range was selected
+        if (Difference_In_Days < 1 || date1 < today || date2 < today) {
+            $("#date-invalid").css("display", "inline");
+            // Prevent re-direction if dates not valid
+            event.preventDefault();
+        } else {
+            //To display the final no. of days (result) to let us calculate the total price based on cost per night for the room.
+            console.log("Number of nights is: " + Difference_In_Days);
+            //displays start date and all dates in betweeen but not the end date.
+            console.log(getDatesBetweenDates(date1, date2));
+            // displays the dates seperately
+            let daysArray = getDatesBetweenDates(date1, date2);
+            // Function to convert the dates in the array to strings. 
+            let datesFinal = datesArrayToStrings(daysArray);
 
-        var allDates = {
-            arrival: datesFinal[0],
-            depart: datesFinal[1],
-            totalNights: Difference_In_Days
-        };
+            var allDates = {
+                arrival: datesFinal[0],
+                depart: datesFinal[1],
+                totalNights: Difference_In_Days
+            };
 
-        console.log("all dates: " + allDates);
+            console.log("all dates: " + allDates);
 
-        localStorage.setItem("allDates", JSON.stringify(allDates));
+            localStorage.setItem("allDates", JSON.stringify(allDates));
 
-        console.log("localstorage: ", JSON.parse(localStorage.getItem("allDates")));
-
+            console.log("localstorage: ", JSON.parse(localStorage.getItem("allDates")));
+        }
     });
-
 
 });
 

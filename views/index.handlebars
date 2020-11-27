@@ -29,13 +29,20 @@
     <div class="d-flex justify-content-center">
         <div class="row">
             <!-- Date picker for check-in and check-out dates -->
-
-
-            <div>
-                <label for="arrival">Arrival Date:</label>
-                <input type="text" id="arrival">
-                <label for="leaving">Leaving Date:</label>
-                <input type="text" id="leaving">
+            <div class="d-flex justify-content-center" id="dates-container">
+                <!-- added this class -->
+                <div class="date-entry">
+                    <label for="arrival">Arrival Date:</label>
+                    <input type="text" id="arrival">
+                </div>
+                <div class="date-entry">
+                    <label for="leaving">Leaving Date:</label>
+                    <input type="text" id="leaving">
+                </div>
+            </div>
+            <!-- Display message if date range is invalid -->
+            <div id="date-invalid">
+                <p class="text-warning">Please enter a valid date range.</p>
             </div>
         </div>
     </div>
