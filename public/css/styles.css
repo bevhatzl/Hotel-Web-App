@@ -33,6 +33,12 @@ body {
 
 #dates-container {
   margin: auto;
+  padding-bottom: 15px;
+}
+
+#date-invalid {
+  display: none;
+  padding-left: 10px;
 }
 
 #title-card {
