@@ -40,6 +40,7 @@ router.get("/booking/:room_number", isLoggedin, (req, res) => {
 
         const userData = {
             name: req.user.first_name + " " + req.user.last_name,
+            UserId: req.user.id,
             email: req.user.email,
         };
 
@@ -50,7 +51,8 @@ router.get("/booking/:room_number", isLoggedin, (req, res) => {
             room_number: dbRoom.room_number,
             room_desc: dbRoom.room_desc,
             name: userData.name,
-            email: userData.email
+            email: userData.email,
+            UserId: userData.UserId
         };
         console.log(namePlates)
         res.render("booking", namePlates);
@@ -61,33 +63,18 @@ router.get("/success", isLoggedin, (req, res) => {
 
     db.Reservation.findOne({
         where: {
-            UserId: req.user.id
+            user_id: req.user.id,
         }
     }).then(dbReservation => {
 
-        console.log(dbReservation);
-
-        const user = db.User.findOne({
-            where: {
-                id: dbReservation.UserId
-            }
-        });
-
-        const room = db.Room.findOne({
-            where: {
-                id: dbReservation.RoomId
-            }
-        });
-
-        const reservation = {
-            name: user.first_name + ' ' + user.last_name,
-            room: 'Room Number: ' + room.room_number + ', ' + room.room_name,
-            arrive: dbReservation.arrival_date,
-            depart: dbReservation.depart_date,
+        let successObj = {
+            UserId: dbReservation.UserId,
+            RoomId: dbReservation.RoomId,
+            arrival_date: dbReservation.arrival_date,
+            depart_date: dbReservation.depart_date,
             num_night: dbReservation.num_night
-        }
-
-        res.render("success", reservation)
+        };
+        res.render("success", successObj);
     });
 
 });

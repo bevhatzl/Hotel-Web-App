@@ -51,14 +51,18 @@ router.get("/api/user_data", function (req, res) {
 });
 
 router.post("/api/booking", function (req, res) {
+
     db.Reservation.create({
-        user_id: req.user.id,
-        room_number: req.body.room_number,
-        arrival_date: req.body.date1,
-        depart_date: req.body.date2,
-        num_nights: req.body.Difference_In_Days,
+        arrival_date: req.body.arrival_date,
+        depart_date: req.body.depart_date,
+        num_night: req.body.num_night,
+        User: req.body.UserId,
+        Room: req.body.RoomId
     }).then(data => {
         console.log(data);
+
+    }).catch(err => {
+        console.log(err);
     });
 });
 
