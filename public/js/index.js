@@ -45,6 +45,8 @@ $(function () {
         // To set two dates to two variables 
         let date1 = new Date(arrivalDate);
         let date2 = new Date(leaveDate);
+        // To get the element clicked on for use in the getTotalPrice function
+        let element = event.target;
         // To calculate the time difference of two dates 
         let Difference_In_Time = date2.getTime() - date1.getTime();
         // To calculate the no. of days between two dates 
@@ -64,19 +66,39 @@ $(function () {
             // Function to convert the dates in the array to strings. 
             let datesFinal = datesArrayToStrings(daysArray);
 
+            //convert departure date to correct format
+            let leavingDate = new Date(leaveDate)
+            const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(leavingDate);
+            const month = new Intl.DateTimeFormat('en', { month: 'numeric' }).format(leavingDate);
+            const day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(leavingDate);
+            const stringFromDepartDate = year + "-" + month + "-" + day;
+
             var allDates = {
                 arrival: datesFinal[0],
-                depart: datesFinal[1],
+                depart: stringFromDepartDate,
                 totalNights: Difference_In_Days
             };
+
+            // To get the total room price (room cost * number of nights)
+            let totalPrice = getTotalPrice(element, Difference_In_Days);
 
             console.log("all dates: " + allDates);
 
             localStorage.setItem("allDates", JSON.stringify(allDates));
 
             console.log("localstorage: ", JSON.parse(localStorage.getItem("allDates")));
+
+            localStorage.setItem("totalRoomCost", JSON.stringify(totalPrice));
         }
     });
+
+    // Receives the number of nights and gets the cost per night from the data attribute. Calculates total price.
+    function getTotalPrice(element, numNights) {
+        let roomPrice = element.getAttribute("data-price");
+        let priceNum = parseFloat(roomPrice).toFixed(2);
+        let totalPrice = numNights * priceNum;
+        return totalPrice;
+    };
 
 });
 

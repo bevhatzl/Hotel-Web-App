@@ -6,6 +6,9 @@ $(document).ready(function () {
     const localDateStorage = JSON.parse(localStorage.getItem("allDates"));
     console.log(localDateStorage.arrival);
 
+    const localStoragePrice = JSON.parse(localStorage.getItem("totalRoomCost"));
+    console.log("Total Price: " + localStoragePrice);
+
     const $cancelButton = $(".cancel-btn");
     const $successButton = $(".success-btn");
 
@@ -14,6 +17,7 @@ $(document).ready(function () {
     $("#arrive").val(localDateStorage.arrival);
     $("#depart").val(localDateStorage.depart);
     $("#totalNights").val(localDateStorage.totalNights);
+    $("#roomCost").val("$" + localStoragePrice.toFixed(2));
 
     const handleCancelRoom = function () {
         // Route to Home page
