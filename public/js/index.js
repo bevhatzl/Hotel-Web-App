@@ -66,9 +66,16 @@ $(function () {
             // Function to convert the dates in the array to strings. 
             let datesFinal = datesArrayToStrings(daysArray);
 
+            //convert departure date to correct format
+            let leavingDate = new Date(leaveDate)
+            const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(leavingDate);
+            const month = new Intl.DateTimeFormat('en', { month: 'numeric' }).format(leavingDate);
+            const day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(leavingDate);
+            const stringFromDepartDate = year + "-" + month + "-" + day;
+
             var allDates = {
                 arrival: datesFinal[0],
-                depart: datesFinal[1],
+                depart: stringFromDepartDate,
                 totalNights: Difference_In_Days
             };
 
