@@ -1,14 +1,16 @@
-<div class="jumbotron text-center">
-    <h1 class="display-3">Thank You!</h1>
-    <p class="lead"><strong>Please check your email</strong> </p>
-    <hr>
-    {{!-- <ul class="list-group">
+<div class="mx-auto" style="width: 800px;">
+    <div class="jumbotron text-center">
+        <h1 class="display-3">Thank You!</h1>
+        <p class="lead"><strong>Please check your email</strong> </p>
+        <hr>
+        {{!-- <ul class="list-group">
         <li class="list-group-item guestName">Guest Name: {{ this.dataValues.User.first_name }}</li>
         <li class="list-group-item reservationNumber">Reservation Number: {{ this.dataValues.id }}</li>
         <li class="list-group-item arrivalDate">Arrival Date: {{ this.dataValues.arrival_date }}</li>
         <li class="list-group-item departureDate">Departure Date: {{ this.dataValues.depart_date }}</li>
         <li class="list-group-item NumberOfDays">Number of Days: {{ this.dataValues.num_night }}</li>
     </ul> --}}
+
     <form id="form">
         <div class="form-group">
             <label for="exampleFormControlInput1">Name:</label>
@@ -44,16 +46,17 @@
         </div>
     </form>
 
-    <hr>
-    <p>
-        Having trouble? <a href="">Contact us</a>
-    </p>
-    <p class="lead">
-        <button type="button" class="btn btn-success success-btn">Complete Purchase</button>
-        <button type="button" class="btn btn-danger cancel-btn">Cancel</button>
-    </p>
-</div>
 
+        <hr>
+        <p>
+            Having trouble? <a href="">Contact us</a>
+        </p>
+        <p class="lead">
+            <button type="button" class="btn btn-success success-btn">Complete Purchase</button>
+            <button type="button" class="btn btn-danger cancel-btn">Cancel</button>
+        </p>
+    </div>
+</div>
 <footer>
     <script src="/js/booking.js"></script>
 </footer>

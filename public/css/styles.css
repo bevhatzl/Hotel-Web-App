@@ -3,6 +3,13 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.centerViewport {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
 #main-nav {
   background-color: #582c4d;
 }
